@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Kommon";
+  src: url("../assets/fonts/Kommon\ Grotesk/Kommon Grotesk Light.otf")
+    format("opentype");
+}
+
+iframe {
+  border: none;
+}
+
+body {
+  background: linear-gradient(to bottom, #1d7ac8, #014880);
+  height: 100vh;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+:root {
+  --max-width: 1100px;
+  --border-radius: 12px;
+  font-family: "Kommon", sans-serif;
+}

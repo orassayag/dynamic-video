@@ -1,0 +1,50 @@
+{
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "allowImportExportEverywhere": true,
+    "ecmaVersion": "latest",
+    "requireConfigFile": false,
+    "babelOptions": {
+      "plugins": [
+        "@babel/plugin-syntax-import-assertions"
+      ]
+    }
+  },
+  "extends": [
+    "standard",
+    "plugin:import/warnings",
+    "eslint:recommended",
+    "airbnb-base"
+  ],
+  "env": {
+    "node": true,
+    "mocha": true,
+    "es2021": true
+  },
+  "plugins": [
+    "import",
+    "jsx-a11y",
+    "node",
+    "promise"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "./src",
+          "./"
+        ]
+      }
+    }
+  },
+  "rules": {
+    "func-names": 0,
+    "no-console": 0,
+    "no-restricted-globals": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/extensions": [
+      "error",
+      "always"
+    ]
+  }
+}

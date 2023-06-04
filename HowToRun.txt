@@ -1,0 +1,12 @@
+1. Fork the project or download it.
+2. Open the server project.
+3. On the terminal: npm i
+4. Once finished, on terminal: npm run dev
+5. Wait for the server to be up.
+6. Open the client project.
+7. On the terminal: npm i
+8. Once finished, on terminal: npm run dev
+9. Wait for the client to connect to the server's Socket.IO.
+10. Once the UI is up, click on the red "Order" button and make some yummy pizzas.
+11. Once you click on the "Checkout" button you will start to see all your orders.
+12. Let the show begin and happy testing! :)
