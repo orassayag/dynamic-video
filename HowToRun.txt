@@ -10,3 +10,4 @@
 10. Once the UI is up, click on the red "Order" button and make some yummy pizzas.
 11. Once you click on the "Checkout" button you will start to see all your orders.
 12. Let the show begin and happy testing! :)
+PLEASE FILL ALL THE FIELDS IN THE FORM IN ORDER FOR IT TO WORK.

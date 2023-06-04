@@ -31,6 +31,8 @@ Material UI 4
 11. Once you click on the "Checkout" button you will start to see all your orders.
 12. Let the show begin and happy testing! :)
 
+PLEASE FILL ALL THE FIELDS IN THE FORM IN ORDER FOR IT TO WORK.
+
 ## Author
 
 - **Or Assayag** - _Initial work_ - [orassayag](https://github.com/orassayag)
