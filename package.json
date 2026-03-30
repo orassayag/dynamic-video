@@ -1,0 +1,51 @@
+{
+  "name": "dynamic-video",
+  "version": "1.0.0",
+  "description": "Full-stack application for generating personalized dynamic videos using the Idomoo API",
+  "author": "Or Assayag <orassayag@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "video-generation",
+    "dynamic-video",
+    "idomoo",
+    "express",
+    "nextjs",
+    "react",
+    "full-stack",
+    "storyboard",
+    "video-customization"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orassayag/dynamic-video.git"
+  },
+  "bugs": {
+    "url": "https://github.com/orassayag/dynamic-video/issues"
+  },
+  "homepage": "https://github.com/orassayag/dynamic-video#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "install:all": "npm run install:server && npm run install:client",
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "build:server": "cd server && echo 'Server does not require build'",
+    "build:client": "cd client && npm run build",
+    "build:all": "npm run build:server && npm run build:client",
+    "lint:server": "cd server && npm run lint || echo 'No lint script in server'",
+    "lint:client": "cd client && npm run lint",
+    "lint:all": "npm run lint:server && npm run lint:client",
+    "start:server": "cd server && npm start || node server/src/bin/www.js",
+    "start:client": "cd client && npm start",
+    "clean": "rm -rf server/node_modules client/node_modules server/package-lock.json client/package-lock.json"
+  },
+  "workspaces": [
+    "server",
+    "client"
+  ]
+}

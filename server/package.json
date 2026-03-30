@@ -1,9 +1,27 @@
 {
-  "name": "server",
+  "name": "dynamic-video-server",
   "version": "0.1.0",
   "private": false,
-  "description": "Form Manager",
+  "description": "Dynamic video generation server using Express.js and Idomoo API",
   "author": "Or Assayag <orassayag@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "video-generation",
+    "dynamic-video",
+    "idomoo",
+    "express",
+    "rest-api",
+    "storyboard",
+    "video-api"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orassayag/dynamic-video.git"
+  },
+  "bugs": {
+    "url": "https://github.com/orassayag/dynamic-video/issues"
+  },
+  "homepage": "https://github.com/orassayag/dynamic-video#readme",
   "contributors": [
     {
       "name": "Or Assayag",

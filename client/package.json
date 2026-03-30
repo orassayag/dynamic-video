@@ -1,9 +1,27 @@
 {
-  "name": "client",
+  "name": "dynamic-video-client",
   "version": "0.1.0",
   "private": false,
-  "description": "Storyboard Manager",
+  "description": "Dynamic video generation client application built with Next.js and React",
   "author": "Or Assayag <orassayag@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "video-generation",
+    "dynamic-video",
+    "nextjs",
+    "react",
+    "material-ui",
+    "storyboard",
+    "video-customization"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orassayag/dynamic-video.git"
+  },
+  "bugs": {
+    "url": "https://github.com/orassayag/dynamic-video/issues"
+  },
+  "homepage": "https://github.com/orassayag/dynamic-video#readme",
   "main": "src/pages/_app.js",
   "scripts": {
     "dev": "npm run open-browser && next dev",
