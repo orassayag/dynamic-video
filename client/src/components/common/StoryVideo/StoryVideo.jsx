@@ -5,9 +5,9 @@ export default function StoryVideo({ videoURL }) {
   next.style.overflow = 'hidden';
   return (
     <iframe
-      title="storyBoard"
-      width="100%"
-      height="100%"
+      title='storyBoard'
+      width='100%'
+      height='100%'
       srcDoc={`<body>
               <script type="text/javascript" src="https://player.idomoo.com/latest/main.js"></script>
               <div id="player"></div>

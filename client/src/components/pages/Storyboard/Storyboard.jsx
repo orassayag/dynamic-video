@@ -15,34 +15,46 @@ import StoryVideo from '../../common/StoryVideo/StoryVideo';
 import styles from './Storyboard.module.scss';
 
 const storyboardId = 31193;
-const getIcon = (key) => (key === 'email_address' ? AlternateEmailIcon : PersonIcon);
-const formatOptions = ['hls', 'mp4', 'gif'].map((o) => ({ key: o, value: o.toUpperCase() }));
-const resolutionOptions = ['1280X1280', '1920X1080', '2560X1440'].map((o) => ({ key: o, value: o }));
-const qualityOptions = ['best', 'better', 'good'].map((o) => ({ key: o, value: o.charAt(0).toUpperCase() + o.slice(1) }));
+const getIcon = (key) =>
+  key === 'email_address' ? AlternateEmailIcon : PersonIcon;
+const formatOptions = ['hls', 'mp4', 'gif'].map((o) => ({
+  key: o,
+  value: o.toUpperCase(),
+}));
+const resolutionOptions = ['1280X1280', '1920X1080', '2560X1440'].map((o) => ({
+  key: o,
+  value: o,
+}));
+const qualityOptions = ['best', 'better', 'good'].map((o) => ({
+  key: o,
+  value: o.charAt(0).toUpperCase() + o.slice(1),
+}));
 
 const CustomStoryboard = styled(Box)`
-&& {
-  .MuiOutlinedInput-notchedOutline {
-    border: none;
-    outline: none;
+  && {
+    .MuiOutlinedInput-notchedOutline {
+      border: none;
+      outline: none;
+    }
+    .MuiButtonBase-root {
+      background-color: #ffffff;
+      color: #2488db;
+      font-weight: bold;
+      border-radius: 30px;
+      text-align: center;
+      font-size: 17px;
+      letter-spacing: -1px;
+    }
+    .MuiPopover-paper,
+    .MuiInputBase-formControl {
+      background-color: rgba(225, 225, 225, 0.3);
+      color: #ffffff;
+    }
+    .MuiSvgIcon-root {
+      color: #ffffff;
+    }
   }
-  .MuiButtonBase-root {
-    background-color: #ffffff;
-    color: #2488DB;
-    font-weight: bold;
-    border-radius: 30px;
-    text-align: center;
-    font-size: 17px;
-    letter-spacing: -1px;
-  }
-  .MuiPopover-paper, .MuiInputBase-formControl {
-    background-color: rgba(225, 225, 225, 0.3);
-    color: #ffffff;
-  }
-  .MuiSvgIcon-root {
-    color: #ffffff;
-  }
-}`;
+`;
 
 export default function Storyboard() {
   const [data, setData] = useState(null);
@@ -71,7 +83,7 @@ export default function Storyboard() {
 
   useEffect(() => {
     if (!checkStatusURL) {
-      return () => { };
+      return () => {};
     }
     const interval = setInterval(async () => {
       const result = await NetworksUtils.sendRequest({
@@ -120,26 +132,33 @@ export default function Storyboard() {
 
   return (
     <>
-      {isVideoReady && (
-        <StoryVideo
-          videoURL={videoURL}
-        />
-      )}
+      {isVideoReady && <StoryVideo videoURL={videoURL} />}
       {!isVideoReady && data && (
         <CustomStoryboard className={styles.container}>
-          <Typography variant="h4" color="white" align="center" gutterBottom className={styles.title}>
+          <Typography
+            variant='h4'
+            color='white'
+            align='center'
+            gutterBottom
+            className={styles.title}
+          >
             Transcript
           </Typography>
           <Box className={styles.form}>
-            <Typography variant="body1" color="white" gutterBottom className={styles.form_header}>
+            <Typography
+              variant='body1'
+              color='white'
+              gutterBottom
+              className={styles.form_header}
+            >
               Enter the details below in order to generate your video
             </Typography>
             <Grid container spacing={2} className={styles.form_row}>
               <Grid item xs={6}>
                 <StoryTextField
-                  className="txt_first_name"
+                  className='txt_first_name'
                   styles={styles}
-                  label="First name"
+                  label='First name'
                   value={firstName}
                   Icon={PersonIcon}
                   onChange={(e) => setFirstName(e.target.value)}
@@ -147,9 +166,9 @@ export default function Storyboard() {
               </Grid>
               <Grid item xs={6} className={styles.box_split}>
                 <StoryTextField
-                  className="txt_last_name"
+                  className='txt_last_name'
                   styles={styles}
-                  label="Last name"
+                  label='Last name'
                   value={lastName}
                   Icon={PersonIcon}
                   onChange={(e) => setLastName(e.target.value)}
@@ -167,10 +186,12 @@ export default function Storyboard() {
                 onChange={handleTextFieldChange}
               />
             ))}
-            <Grid container spacing={2} className={`${styles.form_row} ${styles.break}`}>
-              <StoryBackgroundImage
-                styles={styles}
-              />
+            <Grid
+              container
+              spacing={2}
+              className={`${styles.form_row} ${styles.break}`}
+            >
+              <StoryBackgroundImage styles={styles} />
               <StoryColor
                 styles={styles}
                 showColorPicker={showColorPicker}
@@ -183,25 +204,25 @@ export default function Storyboard() {
             <Grid container spacing={2} className={styles.form_row}>
               <StorySelect
                 styles={styles}
-                name="format"
+                name='format'
                 value={format}
-                label="Format"
+                label='Format'
                 options={formatOptions}
                 onChange={(e) => setFormat(e.target.value)}
               />
               <StorySelect
                 styles={styles}
-                name="resolution"
+                name='resolution'
                 value={resolution}
-                label="Resolution"
+                label='Resolution'
                 options={resolutionOptions}
                 onChange={(e) => setResolution(e.target.value)}
               />
               <StorySelect
                 styles={styles}
-                name="quality"
+                name='quality'
                 value={quality}
-                label="Quality"
+                label='Quality'
                 options={qualityOptions}
                 onChange={(e) => setQuality(e.target.value)}
               />

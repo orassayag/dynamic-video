@@ -5,7 +5,9 @@ import LoggerService from '../services/logger.service.js';
 
 export default class NetworksUtils {
   constructor() {
-    throw new CustomError({ message: 'Cannot create an instance of a static class' });
+    throw new CustomError({
+      message: 'Cannot create an instance of a static class',
+    });
   }
 
   /**
@@ -16,12 +18,7 @@ export default class NetworksUtils {
    * @param options - The axios sends request options (Headers, request type, etc).
    * @return {object}
    */
-  static async sendRequest({
-    url,
-    method,
-    isDevMode,
-    payload = null,
-  }) {
+  static async sendRequest({ url, method, isDevMode, payload = null }) {
     const options = {
       url,
       method,
@@ -39,7 +36,8 @@ export default class NetworksUtils {
     try {
       const response = await axios(options);
       switch (response.status) {
-        case 200: case 201:
+        case 200:
+        case 201:
           data = response.data;
           break;
         default:
@@ -52,14 +50,14 @@ export default class NetworksUtils {
   }
 
   /**
-    * Handle request error.
-    *
-    * This function gets the request's error and options and manipulate to fetch the exact needed
-    * error data according to different objects returned from the original response.
-    * @param error - The server's error object.
-    * @param options - The axios sends request options (Headers, request type, etc).
-    * @return {object}
-    */
+   * Handle request error.
+   *
+   * This function gets the request's error and options and manipulate to fetch the exact needed
+   * error data according to different objects returned from the original response.
+   * @param error - The server's error object.
+   * @param options - The axios sends request options (Headers, request type, etc).
+   * @return {object}
+   */
   static handleRequestError(error, options) {
     LoggerService.error(`Send request failed: ${error.name}: ${error.message}`);
     if (error.response && error.response.data) {
@@ -67,9 +65,15 @@ export default class NetworksUtils {
         const e = new Error(error.response.data.error);
         e.status = error.response.status;
         throw e;
-      } else if (error.response.data.details && Array.isArray(error.response.data.details)) {
-        const e = new Error(options.errSource
-          ? error.response.data.details[0].source : error.response.data.details[0].message);
+      } else if (
+        error.response.data.details &&
+        Array.isArray(error.response.data.details)
+      ) {
+        const e = new Error(
+          options.errSource
+            ? error.response.data.details[0].source
+            : error.response.data.details[0].message
+        );
         e.status = error.response.status;
         throw e;
       } else if (error.response.data.message) {
@@ -79,7 +83,10 @@ export default class NetworksUtils {
       }
       throw error;
     } else {
-      throw new CustomError({ message: `Gateway error: ${error.name}: ${error.message}`, status: 502 });
+      throw new CustomError({
+        message: `Gateway error: ${error.name}: ${error.message}`,
+        status: 502,
+      });
     }
   }
 }

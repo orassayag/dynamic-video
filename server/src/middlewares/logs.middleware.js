@@ -3,7 +3,9 @@ import CustomError from '../custom/error.custom.js';
 
 export default class LogMiddleware {
   constructor() {
-    throw new CustomError({ message: 'Cannot create an instance of a static class' });
+    throw new CustomError({
+      message: 'Cannot create an instance of a static class',
+    });
   }
 
   /**
@@ -16,11 +18,15 @@ export default class LogMiddleware {
    * @returns {void}
    */
   static log(req, res, next) {
-    const fieldsToLog = ['body', 'query', 'params', 'auth', 'headers', 'cookies'];
-    const {
-      method,
-      originalUrl,
-    } = req;
+    const fieldsToLog = [
+      'body',
+      'query',
+      'params',
+      'auth',
+      'headers',
+      'cookies',
+    ];
+    const { method, originalUrl } = req;
     let info = `Request: ${method} | ${originalUrl}`;
     for (let i = 0; i < fieldsToLog.length; i += 1) {
       const field = fieldsToLog[i];

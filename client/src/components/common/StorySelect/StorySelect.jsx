@@ -1,6 +1,4 @@
-import {
-  Grid, FormControl, Select, MenuItem,
-} from '@mui/material';
+import { Grid, FormControl, Select, MenuItem } from '@mui/material';
 
 export default function StorySelect({
   styles,
@@ -14,13 +12,9 @@ export default function StorySelect({
     <Grid item xs={4}>
       <div className={styles.form_group}>
         <div className={styles.label_container}>
-          <div className={`${styles.label} ${styles.select}`}>
-            {label}
-          </div>
+          <div className={`${styles.label} ${styles.select}`}>{label}</div>
         </div>
-        <FormControl
-          fullWidth
-        >
+        <FormControl fullWidth>
           <Select
             name={name}
             className={styles.select}
@@ -28,10 +22,7 @@ export default function StorySelect({
             onChange={onChange}
           >
             {options.map((o) => (
-              <MenuItem
-                key={o.key}
-                value={o.key}
-              >
+              <MenuItem key={o.key} value={o.key}>
                 {o.value}
               </MenuItem>
             ))}

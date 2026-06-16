@@ -4,7 +4,10 @@ import useClickOutside from '../../../hooks/useClickOutside';
 import styles from './StoryColorPicker.module.scss';
 
 export default function StoryColorPicker({
-  selectedColor, showColorPicker, onClose, onChange,
+  selectedColor,
+  showColorPicker,
+  onClose,
+  onChange,
 }) {
   const popover = useRef();
   const close = useCallback(() => onClose(false), [onClose]);

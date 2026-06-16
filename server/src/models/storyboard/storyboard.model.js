@@ -5,16 +5,18 @@ import DataUtils from '../../utils/data.utils.js';
 
 export default class StoryboardModel {
   constructor() {
-    throw new CustomError({ message: 'Cannot create an instance of a static class' });
+    throw new CustomError({
+      message: 'Cannot create an instance of a static class',
+    });
   }
 
   /**
-    * Get an existing storyboard.
-    *
-    * This function gets a storyboard Id and return the storyboard from the API.
-    * @param {integer} id - The storyboard Id.
-    * @return {Promise<object>}
-    */
+   * Get an existing storyboard.
+   *
+   * This function gets a storyboard Id and return the storyboard from the API.
+   * @param {integer} id - The storyboard Id.
+   * @return {Promise<object>}
+   */
   static async getById(id) {
     // Send a request to the API to get the storyboard by the Id.
     const storyboard = await NetworksUtils.sendRequest({
@@ -24,8 +26,12 @@ export default class StoryboardModel {
     });
     // Check if the storyboard exists.
     if (!storyboard || storyboard.status === 'Error') {
-      const { error_message, error_description, error_code } = storyboard.errors[0];
-      return new CustomError({ message: `${error_message}: ${error_description}`, status: error_code });
+      const { error_message, error_description, error_code } =
+        storyboard.errors[0];
+      return new CustomError({
+        message: `${error_message}: ${error_description}`,
+        status: error_code,
+      });
     }
     // Customize all the data to return the client as a merged list of key-value pairs.
     const { data } = storyboard;
@@ -46,13 +52,13 @@ export default class StoryboardModel {
   }
 
   /**
-    * Generates a new video.
-    *
-    * This function gets all the key-value pairs data from the client, generates a new
-    * video via the API, and return the relevant details.
-    * @param {object} data - key-value pairs data from the client.
-    * @return {Promise<object>}
-    */
+   * Generates a new video.
+   *
+   * This function gets all the key-value pairs data from the client, generates a new
+   * video via the API, and return the relevant details.
+   * @param {object} data - key-value pairs data from the client.
+   * @return {Promise<object>}
+   */
   static async create(data) {
     // ToDo: Check again if the storyboard exists.
 
@@ -71,23 +77,24 @@ export default class StoryboardModel {
     // Create the API request data to send the API.
     const requestData = {
       output: {
-        video:
-          [{
+        video: [
+          {
             video_type: 'hls', // ToDo: Load from the client.
             quality: 29,
             height: 720,
-          }],
-        jpg:
-          [{
+          },
+        ],
+        jpg: [
+          {
             time: 6,
             height: 720,
           },
           {
             time: 6,
             height: 180,
-            suffix:
-              'small',
-          }],
+            suffix: 'small',
+          },
+        ],
       },
       data: dataFields,
       storyboard_id: techFields.storyboard_id,
@@ -101,8 +108,12 @@ export default class StoryboardModel {
     });
     // Check if the video generator result.
     if (!storyboardResult || storyboardResult.status === 'Error') {
-      const { error_message, error_description, error_code } = storyboardResult.errors[0];
-      return new CustomError({ message: `${error_message}: ${error_description}`, status: error_code });
+      const { error_message, error_description, error_code } =
+        storyboardResult.errors[0];
+      return new CustomError({
+        message: `${error_message}: ${error_description}`,
+        status: error_code,
+      });
     }
     // Check that the video was created successfully.
     if (storyboardResult.status !== 'Success') {

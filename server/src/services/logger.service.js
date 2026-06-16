@@ -6,11 +6,11 @@ import FilesUtils from '../utils/files.utils.js';
 const { format } = winston;
 
 /**
-  * Initiate.
-  *
-  * Initiate the logger service, create the enumerateErrorFormat and all the logger's transports.
-  * @returns {object}
-  */
+ * Initiate.
+ *
+ * Initiate the logger service, create the enumerateErrorFormat and all the logger's transports.
+ * @returns {object}
+ */
 const initiateLoggerService = () => {
   // Add transports are necessary.
   const transports = [];
@@ -50,9 +50,11 @@ const initiateLoggerService = () => {
           }),
           format.prettyPrint(),
           format.timestamp(),
-          winston.format.printf((info) => `${info.level}: ${info.timestamp}: ${info.message}`),
+          winston.format.printf(
+            (info) => `${info.level}: ${info.timestamp}: ${info.message}`
+          )
         ),
-      }),
+      })
     );
   }
   // File logger transport.
@@ -75,9 +77,9 @@ const initiateLoggerService = () => {
         format: format.combine(
           format.json(),
           format.prettyPrint(),
-          format.timestamp(),
+          format.timestamp()
         ),
-      }),
+      })
     );
   }
   return {
@@ -91,9 +93,7 @@ const { transports, enumerateErrorFormat } = initiateLoggerService();
 
 // Create the logger service instance by Winston with all the transports list and the enumerate.
 const LoggerService = winston.createLogger({
-  format: format.combine(
-    enumerateErrorFormat(),
-  ),
+  format: format.combine(enumerateErrorFormat()),
   transports,
   exitOnError: false,
 });

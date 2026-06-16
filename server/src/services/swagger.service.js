@@ -1,11 +1,13 @@
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import packageJSON from '../../package.json' assert { type: "json" };
+import packageJSON from '../../package.json' assert { type: 'json' };
 import CustomError from '../custom/error.custom.js';
 
 export default class SwaggerService {
   constructor() {
-    throw new CustomError({ message: 'Cannot create an instance of a static class' });
+    throw new CustomError({
+      message: 'Cannot create an instance of a static class',
+    });
   }
 
   /**

@@ -4,7 +4,9 @@ import CustomError from '../custom/error.custom.js';
 
 export default class FilesUtils {
   constructor() {
-    throw new CustomError({ message: 'Cannot create an instance of a static class' });
+    throw new CustomError({
+      message: 'Cannot create an instance of a static class',
+    });
   }
 
   /**

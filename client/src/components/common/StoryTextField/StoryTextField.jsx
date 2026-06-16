@@ -11,12 +11,8 @@ export default function StoryTextField({
   return (
     <div className={styles.form_group}>
       <div className={styles.label_container}>
-        <Icon
-          className={styles.icon}
-        />
-        <div className={styles.label}>
-          {label}
-        </div>
+        <Icon className={styles.icon} />
+        <div className={styles.label}>{label}</div>
       </div>
       <TextField
         className={styles[className]}

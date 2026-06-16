@@ -9,16 +9,20 @@ export default function StoryBackgroundImage({ styles }) {
 
   useEffect(() => {
     if (!isClick || progress === 100) {
-      return () => { };
+      return () => {};
     }
-    const interval = setInterval(() => setProgress((prev) => {
-      if (prev === 100) {
-        clearInterval(interval);
-        setIsClick(false);
-        return prev;
-      }
-      return prev + 20;
-    }), 1000);
+    const interval = setInterval(
+      () =>
+        setProgress((prev) => {
+          if (prev === 100) {
+            clearInterval(interval);
+            setIsClick(false);
+            return prev;
+          }
+          return prev + 20;
+        }),
+      1000
+    );
     return () => clearInterval(interval);
   }, [isClick, progress]);
 
@@ -33,31 +37,31 @@ export default function StoryBackgroundImage({ styles }) {
       <div className={styles.upload_container}>
         <div className={styles.form_group}>
           <div className={styles.label_container}>
-            <div className={styles.label}>
-              Background image
-            </div>
+            <div className={styles.label}>Background image</div>
           </div>
           <div className={styles.upload_form_container}>
             <div className={styles.upload_form_button}>
               <Button
                 className={styles.upload_button}
-                variant="contained"
-                component="label"
+                variant='contained'
+                component='label'
               >
                 Upload
-                <input type="file" className={styles.file_upload} onChange={handleBackgroundImageChange} />
-              </Button>
-              {isClick && (
-                <StoryProgressBar
-                  value={progress}
+                <input
+                  type='file'
+                  className={styles.file_upload}
+                  onChange={handleBackgroundImageChange}
                 />
-              )}
+              </Button>
+              {isClick && <StoryProgressBar value={progress} />}
             </div>
             <div
               className={`${styles.thumbnail} ${progress === 100 ? styles.active : ''}`}
               style={{
-                backgroundImage: progress === 100
-                  ? `url("https://randomuser.me/api/portraits/thumb/women/${randomImageId}.jpg")` : 'none',
+                backgroundImage:
+                  progress === 100
+                    ? `url("https://randomuser.me/api/portraits/thumb/women/${randomImageId}.jpg")`
+                    : 'none',
               }}
             />
           </div>

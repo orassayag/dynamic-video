@@ -1,4 +1,4 @@
-import configJson from './env.json' assert { type: "json" };
+import configJson from './env.json' assert { type: 'json' };
 //  After environment variables are supplied,
 export default {
   ...configJson,

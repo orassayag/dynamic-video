@@ -4,7 +4,9 @@ import CustomError from '../custom/error.custom.js';
 
 export default class ErrorsMiddleware {
   constructor() {
-    throw new CustomError({ message: 'Cannot create an instance of a static class' });
+    throw new CustomError({
+      message: 'Cannot create an instance of a static class',
+    });
   }
 
   /**
@@ -53,6 +55,11 @@ export default class ErrorsMiddleware {
    * @returns {void}
    */
   static PageNotFoundHandlerMiddleware(req, res, next) {
-    return next(new CustomError({ message: `Page not found: ${req.path} via: ${req.method}`, status: 404 }));
+    return next(
+      new CustomError({
+        message: `Page not found: ${req.path} via: ${req.method}`,
+        status: 404,
+      })
+    );
   }
 }

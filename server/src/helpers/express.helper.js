@@ -3,7 +3,9 @@ import CustomError from '../custom/error.custom.js';
 
 export default class ExpressHelper {
   constructor() {
-    throw new CustomError({ message: 'Cannot create an instance of a static class' });
+    throw new CustomError({
+      message: 'Cannot create an instance of a static class',
+    });
   }
 
   /**
@@ -34,7 +36,8 @@ export default class ExpressHelper {
   static onListening = (server) => () => {
     const debug = debugFactory('tutorial:server');
     const addr = server.address();
-    const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+    const bind =
+      typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
     debug(`Listening on ${bind}`);
   };
 

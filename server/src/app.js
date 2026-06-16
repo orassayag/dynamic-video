@@ -16,7 +16,9 @@ import SwaggerService from './services/swagger.service.js';
 // Set the server.
 const app = express();
 // Get the server's port.
-const port = ExpressHelper.validatePort(ENV.server.port || CONSTANTS.SERVER.PORT);
+const port = ExpressHelper.validatePort(
+  ENV.server.port || CONSTANTS.SERVER.PORT
+);
 const url = `http://localhost:${port}`;
 // For error handling, we need to externalise this.
 process.env.NODE_ENV = ENV.server.env;
@@ -24,15 +26,21 @@ process.env.NODE_ENV = ENV.server.env;
 app.use(
   cors({
     origin: '*',
-  }),
+  })
 );
 app.use(cookieParser());
 // Set the Swagger UI by the OpenApi.
 const { swaggerUi, swaggerSetup } = SwaggerService.initiate(url);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSetup, { explorer: true }));
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSetup, { explorer: true })
+);
 // Set the express limitations.
 app.use(express.json({ limit: CONSTANTS.SERVER.EXPRESS_LIMIT }));
-app.use(express.urlencoded({ limit: CONSTANTS.SERVER.EXPRESS_LIMIT, extended: false }));
+app.use(
+  express.urlencoded({ limit: CONSTANTS.SERVER.EXPRESS_LIMIT, extended: false })
+);
 // Set the compression middleware.
 app.use(compression());
 // Set logging for each request.

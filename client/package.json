@@ -1,40 +1,74 @@
 {
   "name": "dynamic-video-client",
   "version": "0.1.0",
-  "private": false,
-  "description": "Dynamic video generation client application built with Next.js and React",
-  "author": "Or Assayag <orassayag@gmail.com>",
-  "license": "MIT",
+  "description": "Dynamic Video is a full-stack web application built with Node.js/Express and Next.js and React. It allows users to generate personalized, professional videos using the Idomoo API. Features include an interactive form interface for real-time customization of text, colors, images, and formats",
   "keywords": [
-    "video-generation",
-    "dynamic-video",
-    "nextjs",
-    "react",
+    "dynamic-video-generation",
+    "idomoo-api",
+    "full-stack-application",
+    "node-js",
+    "express-backend",
+    "next-js",
+    "react-frontend",
     "material-ui",
-    "storyboard",
-    "video-customization"
+    "rest-api",
+    "swagger-documentation",
+    "video-personalization",
+    "storyboard-templates",
+    "real-time-progress-tracking",
+    "video-rendering",
+    "multimedia-api",
+    "user-customization",
+    "cloud-video-generation",
+    "form-based-interface",
+    "api-integration",
+    "responsive-web-app"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/orassayag/dynamic-video.git"
-  },
+  "homepage": "https://github.com/orassayag/dynamic-video#readme",
   "bugs": {
     "url": "https://github.com/orassayag/dynamic-video/issues"
   },
-  "homepage": "https://github.com/orassayag/dynamic-video#readme",
-  "main": "src/pages/_app.js",
-  "scripts": {
-    "dev": "npm run open-browser && next dev",
-    "open-browser": "start http://localhost:3000",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orassayag/dynamic-video.git"
   },
-  "devDependencies": {
-    "@babel/eslint-parser": "^7.21.3",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-no-inline-styles": "^1.0.5",
-    "eslint-plugin-security": "^1.7.1"
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/orassayag"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Or Assayag",
+    "email": "orassayag@gmail.com",
+    "url": "https://github.com/orassayag"
+  },
+  "contributors": [
+    {
+      "name": "Or Assayag",
+      "email": "orassayag@gmail.com",
+      "url": "https://github.com/orassayag"
+    }
+  ],
+  "type": "commonjs",
+  "main": "src/pages/_app.js",
+  "files": [
+    ".vscode",
+    "public",
+    "src",
+    ".eslintrc.json",
+    ".gitignore",
+    ".prettierrc",
+    "jsconfig.json",
+    "next.config.js",
+    "package-lock.json",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "next build",
+    "dev": "npm run open-browser && next dev",
+    "lint": "next lint",
+    "open-browser": "start http://localhost:3000",
+    "start": "next start"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -53,5 +87,11 @@
     "react-router-dom": "^6.11.2",
     "sass": "^1.62.0",
     "yup": "^1.2.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.21.3",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-no-inline-styles": "^1.0.5",
+    "eslint-plugin-security": "^1.7.1"
   }
 }

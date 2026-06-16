@@ -2,26 +2,47 @@
   "name": "dynamic-video-server",
   "version": "0.1.0",
   "private": false,
-  "description": "Dynamic video generation server using Express.js and Idomoo API",
-  "author": "Or Assayag <orassayag@gmail.com>",
-  "license": "MIT",
+  "description": "Dynamic Video is a full-stack web application built with Node.js/Express and Next.js and React. It allows users to generate personalized, professional videos using the Idomoo API. Features include an interactive form interface for real-time customization of text, colors, images, and formats",
   "keywords": [
-    "video-generation",
-    "dynamic-video",
-    "idomoo",
-    "express",
+    "dynamic-video-generation",
+    "idomoo-api",
+    "full-stack-application",
+    "node-js",
+    "express-backend",
+    "next-js",
+    "react-frontend",
+    "material-ui",
     "rest-api",
-    "storyboard",
-    "video-api"
+    "swagger-documentation",
+    "video-personalization",
+    "storyboard-templates",
+    "real-time-progress-tracking",
+    "video-rendering",
+    "multimedia-api",
+    "user-customization",
+    "cloud-video-generation",
+    "form-based-interface",
+    "api-integration",
+    "responsive-web-app"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/orassayag/dynamic-video.git"
-  },
+  "homepage": "https://github.com/orassayag/dynamic-video#readme",
   "bugs": {
     "url": "https://github.com/orassayag/dynamic-video/issues"
   },
-  "homepage": "https://github.com/orassayag/dynamic-video#readme",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orassayag/dynamic-video.git"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/orassayag"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Or Assayag",
+    "email": "orassayag@gmail.com",
+    "url": "https://github.com/orassayag"
+  },
   "contributors": [
     {
       "name": "Or Assayag",
@@ -29,11 +50,36 @@
       "url": "https://github.com/orassayag"
     }
   ],
-  "main": "app.js",
+  "type": "module",
+  "main": "src/app.js",
+  "files": [
+    ".vscode",
+    "config",
+    "server",
+    "src",
+    ".eslintrc",
+    ".gitignore",
+    ".prettierrc",
+    "package-lock.json",
+    "package.json"
+  ],
   "scripts": {
     "dev": "NODE_ENV=local nodemon --watch src --ext js,yaml,json,ejs --ignore --exec node --es-module-specifier-resolution=node --inspect ./src/bin/www.js --source-maps DEBUG=metrics",
-    "test": "mocha",
-    "dev-test": "NODE_ENV=local npm run test"
+    "dev-test": "NODE_ENV=local npm run test",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "debug": "^4.3.4",
+    "express": "^4.18.2",
+    "joi": "^17.9.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2",
+    "winston": "^3.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
@@ -49,21 +95,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "nodemon": "^2.0.22"
   },
-  "dependencies": {
-    "axios": "^1.4.0",
-    "body-parser": "^1.20.2",
-    "compression": "^1.7.4",
-    "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
-    "debug": "^4.3.4",
-    "express": "^4.18.2",
-    "joi": "^17.9.2",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.2",
-    "winston": "^3.9.0"
-  },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "type": "module"
+  }
 }

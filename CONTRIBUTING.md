@@ -9,13 +9,14 @@ Everyone is welcome to contribute to this project. Contributing doesn't just mea
 ### Reporting Issues
 
 If you find a bug or have a feature request:
+
 1. Check if the issue already exists in the [GitHub Issues](https://github.com/orassayag/dynamic-video/issues)
 2. If not, create a new issue with:
    - Clear title and description
    - Steps to reproduce (for bugs)
    - Expected vs actual behavior
-   - Error messages or screenshots (if applicable)
-   - Your environment details (OS, Node version, browser)
+   - Error codes (if applicable)
+   - Your environment details (OS, Node version)
 
 ### Submitting Pull Requests
 
@@ -32,88 +33,55 @@ If you find a bug or have a feature request:
 ### Code Style Guidelines
 
 This project uses:
-- **JavaScript (ES6+)** with modern syntax
+
+- **TypeScript** with strict type checking
 - **ESLint** for code quality
-- **Express** best practices for the server
-- **React** best practices for the client
+- **Prettier** for code formatting
+- **InversifyJS** for dependency injection
 
 Before submitting:
-```bash
-# Server
-cd server
-npm install
-npm run dev-test
 
-# Client
-cd client
-npm install
-npm run lint
-npm run build
+```bash
+pnpm format
+pnpm lint
+pnpm build
+pnpm test
 ```
 
 ### Coding Standards
 
-1. **Server-side (Express)**
-   - Use static classes for controllers and models
-   - Include JSDoc comments for all public methods
-   - Use custom error handling with proper status codes
-   - Follow RESTful API conventions
-   - Use Joi for request validation
+1. **Dependency Injection**: Use @injectable decorators for services
+2. **Error handling**: All errors must include unique error codes (see `misc/error_index.txt`)
+3. **Logging**: Use structured Logger instead of console.log
+4. **Type safety**: Avoid using `any` - define proper types
+5. **Domain organization**: Place code in appropriate domain folders (not utils/)
+6. **Naming**: Use clear, descriptive names for variables and functions
 
-2. **Client-side (React/Next.js)**
-   - Use functional components with hooks
-   - Follow Material-UI theming patterns
-   - Keep components modular and reusable
-   - Use proper PropTypes validation
-   - Maintain consistent styling with SCSS modules
-
-3. **General**
-   - Write clear, descriptive variable and function names
-   - Keep functions focused and single-purpose
-   - Handle errors gracefully with appropriate messaging
-   - Use environment variables for configuration
-   - Never commit sensitive data (API keys, credentials)
-
-### Project Structure
+### Adding New Features
 
 When adding new features:
 
-**Server (`/server/src/`):**
-- Controllers in `controllers/`
-- Models in `models/`
-- Routes in `routes/`
-- Validations in `validations/`
-- Middleware in `middlewares/`
-- Utilities in `utils/`
+1. Create appropriate types in `src/types/`
+2. Add service logic in `src/services/` with DI
+3. Update scripts in `src/scripts/` if needed
+4. Add error codes and update `misc/error_index.txt`
+5. Test thoroughly with vitest
 
-**Client (`/client/src/`):**
-- Components in `components/common/` or `components/pages/`
-- Pages in `pages/`
-- Utilities in `utils/`
-- Configuration in `config/`
+### Error Code Management
 
-### Testing
+When adding new errors:
 
-- Test server endpoints using the Swagger UI at `http://localhost:8080/api-docs`
-- Test client functionality by running the development server
-- Verify both server and client work together correctly
-- Test error handling scenarios
-
-### Security Considerations
-
-- Never hardcode API keys or credentials
-- Always validate and sanitize user input
-- Use CORS properly to restrict origins in production
-- Follow OWASP security guidelines
-- Report security vulnerabilities privately to the maintainer
+1. Use the next available error code from `misc/error_index.txt`
+2. Format: `[ERROR-XXXXXXX]` at the start of the error message
+3. Document the error in `misc/error_index.txt`
 
 ## Questions or Need Help?
 
 Please feel free to contact me with any question, comment, pull-request, issue, or any other thing you have in mind.
 
-* Or Assayag <orassayag@gmail.com>
-* GitHub: https://github.com/orassayag
-* StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
-* LinkedIn: https://linkedin.com/in/orassayag
+- Or Assayag <orassayag@gmail.com>
+- GitHub: https://github.com/orassayag
+- StackOverflow: https://stackoverflow.com/users/4442606/or-assayag?tab=profile
+- LinkedIn: https://linkedin.com/in/orassayag
 
 Thank you for contributing! 🙏

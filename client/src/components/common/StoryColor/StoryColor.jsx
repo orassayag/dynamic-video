@@ -17,8 +17,8 @@ export default function StoryColor({
             <div className={styles.color_form_button}>
               <Button
                 className={styles.color_button}
-                variant="contained"
-                component="label"
+                variant='contained'
+                component='label'
                 onClick={onToggleColorPicker}
               >
                 Choose Color

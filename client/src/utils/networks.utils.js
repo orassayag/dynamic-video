@@ -13,11 +13,7 @@ export default class NetworksUtils {
    * @param options - The AXIOS sends request options (Headers, request type, etc).
    * @return {object}
    */
-  static async sendRequest({
-    url,
-    method,
-    payload = null,
-  }) {
+  static async sendRequest({ url, method, payload = null }) {
     const options = {
       url,
       method,
@@ -30,7 +26,8 @@ export default class NetworksUtils {
     try {
       const response = await axios(options);
       switch (response.status) {
-        case 200: case 201:
+        case 200:
+        case 201:
           data = response.data;
           break;
         default:
@@ -43,23 +40,29 @@ export default class NetworksUtils {
   }
 
   /**
-    * Handle request error.
-    *
-    * This function gets the request's error and options and manipulate to fetch the exact needed
-    * error data according to different objects returned from the original response.
-    * @param error - The server's error object.
-    * @param options - The AXIOS sends request options (Headers, request type, etc).
-    * @return {object}
-    */
+   * Handle request error.
+   *
+   * This function gets the request's error and options and manipulate to fetch the exact needed
+   * error data according to different objects returned from the original response.
+   * @param error - The server's error object.
+   * @param options - The AXIOS sends request options (Headers, request type, etc).
+   * @return {object}
+   */
   static handleRequestError(error, options) {
     if (error.response && error.response.data) {
       if (error.response.data.error) {
         const e = new Error(error.response.data.error);
         e.status = error.response.status;
         throw e;
-      } else if (error.response.data.details && Array.isArray(error.response.data.details)) {
-        const e = new Error(options.errSource
-          ? error.response.data.details[0].source : error.response.data.details[0].message);
+      } else if (
+        error.response.data.details &&
+        Array.isArray(error.response.data.details)
+      ) {
+        const e = new Error(
+          options.errSource
+            ? error.response.data.details[0].source
+            : error.response.data.details[0].message
+        );
         e.status = error.response.status;
         throw e;
       } else if (error.response.data.message) {
@@ -69,7 +72,10 @@ export default class NetworksUtils {
       }
       throw error;
     } else {
-      throw new Error({ message: `Gateway error: ${error.name}: ${error.message}`, status: 502 });
+      throw new Error({
+        message: `Gateway error: ${error.name}: ${error.message}`,
+        status: 502,
+      });
     }
   }
 }
